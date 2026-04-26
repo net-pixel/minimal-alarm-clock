@@ -4,25 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alarm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="clock" id="clock">00:00:00</div>
+  <div class="bg-glow"></div>
 
-    <div class="alarm-section">
-      <label class="label">アラーム時刻</label>
-      <input type="time" id="alarmTime" />
+  <div class="container">
+
+    <!-- Clock ring -->
+    <div class="clock-wrap">
+      <svg class="ring" viewBox="0 0 220 220">
+        <circle class="ring-track" cx="110" cy="110" r="100" />
+        <circle class="ring-fill" id="ringFill" cx="110" cy="110" r="100" />
+      </svg>
+      <div class="clock-inner">
+        <div class="date" id="date">--- -- --</div>
+        <div class="clock" id="clock">00:00:00</div>
+      </div>
     </div>
 
-    <button id="toggleBtn" class="btn">セット</button>
+    <!-- Alarm card -->
+    <div class="card">
+      <div class="card-label">ALARM</div>
+      <input type="time" id="alarmTime" />
+      <div class="status" id="status"></div>
+      <button id="toggleBtn" class="btn">SET</button>
+    </div>
 
-    <div class="status" id="status"></div>
   </div>
-
-  <audio id="alarmSound" loop>
-    <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" type="audio/mpeg" />
-  </audio>
 
   <script src="app.js"></script>
 </body>
